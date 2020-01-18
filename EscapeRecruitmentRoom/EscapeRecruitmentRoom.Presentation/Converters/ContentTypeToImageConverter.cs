@@ -30,6 +30,8 @@ namespace EscapeRecruitmentRoom.Presentation.Converters
                     return "pack://application:,,,/Resources/Images/default_key_skeleton.png";
                 case ContentType.Door:
                     return "pack://application:,,,/Resources/Images/doors_item_steel.png";
+                case ContentType.Hero:
+                    return "pack://application:,,,/Resources/Images/default_gold_lump.png";
             }
 
             return "pack://application:,,,/Resources/Images/default_obsidian.png";

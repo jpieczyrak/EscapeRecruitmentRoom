@@ -10,10 +10,31 @@
                                      IsDesignTimeCreatable=True}"
     d:DesignHeight="450"
     d:DesignWidth="600"
+    Focusable="True"
+    Loaded="RoomView_OnLoaded"
     mc:Ignorable="d">
     <UserControl.Resources>
         <converters:ContentTypeToImageConverter x:Key="ContentTypeToImageConverter" />
     </UserControl.Resources>
+    <UserControl.InputBindings>
+        <KeyBinding
+            Key="Left"
+            Command="{Binding Left}"
+            Modifiers="Alt" />
+        <KeyBinding
+            Key="Right"
+            Command="{Binding Right}"
+            Modifiers="Alt" />
+        <KeyBinding
+            Key="Up"
+            Command="{Binding Up}"
+            Modifiers="Alt" />
+        <KeyBinding
+            Key="Down"
+            Command="{Binding Down}"
+            Modifiers="Alt" />
+    </UserControl.InputBindings>
+
     <Grid Background="Gray">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -25,6 +46,8 @@
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="0" />
 
         <ItemsControl
             Grid.Column="1"
@@ -69,14 +92,15 @@
         <TextBox
             Grid.Row="1"
             Grid.ColumnSpan="3"
-            MinHeight="200"
+            Height="200"
             Margin="5,1"
             AcceptsReturn="True"
             AcceptsTab="True"
             Background="#FF303030"
             Foreground="Gainsboro"
             IsReadOnly="True"
-            Text="{Binding Manager.GameState.TurnLogText, Mode=OneWay}" />
+            Text="{Binding Manager.GameState.TurnLogText, Mode=OneWay}"
+            VerticalScrollBarVisibility="Auto" />
         <TextBox
             Grid.Row="2"
             Grid.ColumnSpan="3"
