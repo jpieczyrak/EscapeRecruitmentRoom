@@ -5,9 +5,23 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:EscapeRecruitmentRoom.Presentation"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModel="clr-namespace:EscapeRecruitmentRoom.Presentation.ViewModel"
     Title="Escape recruitment room"
-    Width="800"
-    Height="450"
+    Width="600"
+    Height="600"
+    d:DataContext="{d:DesignInstance Type=viewModel:MainViewModel,
+                                     IsDesignTimeCreatable=True}"
     mc:Ignorable="d">
-    <Grid />
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <UserControl
+            Grid.Row="1"
+            Margin="5"
+            Content="{Binding SelectedViewModel}" />
+    </Grid>
 </Window>
