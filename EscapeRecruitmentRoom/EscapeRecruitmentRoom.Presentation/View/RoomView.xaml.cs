@@ -9,7 +9,6 @@ namespace EscapeRecruitmentRoom.Presentation.View
         public RoomView()
         {
             InitializeComponent();
-            DataContext = new RoomViewModel();
         }
     }
 }

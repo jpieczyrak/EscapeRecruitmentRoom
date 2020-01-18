@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-using EscapeRecruitmentRoom.Core.Logic;
+using EscapeRecruitmentRoom.Core.Logic.Board;
 using EscapeRecruitmentRoom.Core.Model;
 
 using GalaSoft.MvvmLight;

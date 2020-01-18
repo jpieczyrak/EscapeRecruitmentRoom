@@ -8,7 +8,6 @@ namespace EscapeRecruitmentRoom.Presentation
     {
         public MainWindow()
         {
-
             // todo: resolve
             MainViewModel vm = new MainViewModel();
             DataContext = vm;
