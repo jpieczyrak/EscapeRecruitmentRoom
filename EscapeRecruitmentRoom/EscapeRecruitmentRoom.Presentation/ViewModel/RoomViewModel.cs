@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 
 using EscapeRecruitmentRoom.Core.Logic.Board;
+using EscapeRecruitmentRoom.Core.Logic.Game;
 using EscapeRecruitmentRoom.Core.Model;
 
 using GalaSoft.MvvmLight;
@@ -9,16 +10,17 @@ namespace EscapeRecruitmentRoom.Presentation.ViewModel
 {
     public class RoomViewModel : ViewModelBase
     {
-        private BoardManager _manager;
+        public GameManager Manager { get; }
 
         public IReadOnlyCollection<IReadOnlyCollection<Tile>> Tiles { get; set; }
 
         public RoomViewModel()
         {
-            var provider = new BoardProvider();
-            _manager = new BoardManager(provider);
+            // todo: resolve
+            Manager = new GameManager(new BoardProvider());
+            Manager.StartGame();
 
-            Tiles = _manager.Tiles;
+            Tiles = Manager.BoardManager.Tiles;
         }
     }
 }

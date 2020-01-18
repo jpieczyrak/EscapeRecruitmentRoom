@@ -7,8 +7,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModel="clr-namespace:EscapeRecruitmentRoom.Presentation.ViewModel"
     Title="Escape recruitment room"
-    Width="600"
-    Height="600"
+    Width="1000"
+    Height="800"
     d:DataContext="{d:DesignInstance Type=viewModel:MainViewModel,
                                      IsDesignTimeCreatable=True}"
     mc:Ignorable="d">

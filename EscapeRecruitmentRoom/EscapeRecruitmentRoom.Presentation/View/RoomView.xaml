@@ -9,7 +9,7 @@
     d:DataContext="{d:DesignInstance Type=viewModel:RoomViewModel,
                                      IsDesignTimeCreatable=True}"
     d:DesignHeight="450"
-    d:DesignWidth="800"
+    d:DesignWidth="600"
     mc:Ignorable="d">
     <UserControl.Resources>
         <converters:ContentTypeToImageConverter x:Key="ContentTypeToImageConverter" />
@@ -20,8 +20,16 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
 
-        <ItemsControl ItemsSource="{Binding Tiles}">
+        <ItemsControl
+            Grid.Column="1"
+            Margin="5,2"
+            ItemsSource="{Binding Tiles}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <ItemsControl ItemsSource="{Binding}">
@@ -31,7 +39,7 @@
                                     <ItemsControl ItemsSource="{Binding Content}">
                                         <ItemsControl.ItemTemplate>
                                             <DataTemplate>
-                                                <Image MaxHeight="50" Source="{Binding ., Converter={StaticResource ContentTypeToImageConverter}}" />
+                                                <Image MaxHeight="40" Source="{Binding ., Converter={StaticResource ContentTypeToImageConverter}}" />
                                             </DataTemplate>
                                         </ItemsControl.ItemTemplate>
                                         <ItemsControl.ItemsPanel>
@@ -58,5 +66,27 @@
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
         </ItemsControl>
+        <TextBox
+            Grid.Row="1"
+            Grid.ColumnSpan="3"
+            MinHeight="200"
+            Margin="5,1"
+            AcceptsReturn="True"
+            AcceptsTab="True"
+            Background="#FF303030"
+            Foreground="Gainsboro"
+            IsReadOnly="True"
+            Text="{Binding Manager.GameState.TurnLogText, Mode=OneWay}" />
+        <TextBox
+            Grid.Row="2"
+            Grid.ColumnSpan="3"
+            Margin="5,1"
+            Background="#FF303030"
+            Foreground="Gainsboro" />
+
+        <TextBlock
+            Grid.Column="2"
+            Foreground="Gainsboro"
+            Text="{Binding Manager.GameState.TurnNumber}" />
     </Grid>
 </UserControl>
