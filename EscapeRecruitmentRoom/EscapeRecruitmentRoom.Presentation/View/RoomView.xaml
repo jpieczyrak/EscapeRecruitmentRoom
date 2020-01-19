@@ -33,6 +33,7 @@
             Key="Down"
             Command="{Binding Down}"
             Modifiers="Alt" />
+        <KeyBinding Key="Enter" Command="{Binding Parse}" />
     </UserControl.InputBindings>
 
     <Grid Background="Gray">
@@ -111,7 +112,8 @@
             Grid.ColumnSpan="3"
             Margin="5,1"
             Background="#FF303030"
-            Foreground="Gainsboro" />
+            Foreground="Gainsboro"
+            Text="{Binding CommandText, UpdateSourceTrigger=PropertyChanged}" />
 
         <TextBlock
             Grid.Column="2"
