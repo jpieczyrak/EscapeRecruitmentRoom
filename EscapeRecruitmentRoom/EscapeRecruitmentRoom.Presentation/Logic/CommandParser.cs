@@ -22,6 +22,14 @@ namespace EscapeRecruitmentRoom.Presentation.Logic
                         manager.Go(manager.HeroTile.Code, direction);
                     }
                 }
+                else if (string.Equals(elements[1], nameof(GameManager.FireUp), StringComparison.CurrentCultureIgnoreCase))
+                {
+                    manager.FireUp(elements[0]);
+                }
+                else if (string.Equals(elements[1], nameof(GameManager.PutTnt), StringComparison.CurrentCultureIgnoreCase))
+                {
+                    manager.PutTnt(elements[0]);
+                }
             }
             else if (elements.Length == 3)
             {
