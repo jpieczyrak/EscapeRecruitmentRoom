@@ -47,7 +47,12 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Row="0" Grid.Column="0" />
+        <StackPanel Grid.Row="0" Grid.Column="0">
+            <Button
+                Margin="5"
+                Command="{Binding Restart}"
+                Content="Restart" />
+        </StackPanel>
 
         <ItemsControl
             Grid.Column="1"

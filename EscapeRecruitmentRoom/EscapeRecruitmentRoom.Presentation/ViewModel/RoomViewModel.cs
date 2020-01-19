@@ -19,6 +19,7 @@ namespace EscapeRecruitmentRoom.Presentation.ViewModel
         public RelayCommand Right { get; }
         public RelayCommand Up { get; }
         public RelayCommand Down { get; }
+        public RelayCommand Restart { get; }
 
         public RoomViewModel()
         {
@@ -35,6 +36,13 @@ namespace EscapeRecruitmentRoom.Presentation.ViewModel
             Up = new RelayCommand(() => Manager.Go(Manager.HeroTile.Code, Direction.Up));
 
             Down = new RelayCommand(() => Manager.Go(Manager.HeroTile.Code, Direction.Down));
+        }
+
+        private void RestartImpl()
+        {
+            Manager.Restart();
+            Tiles = Manager.GameState.Tiles;
+            this.RaisePropertyChanged(nameof(Tiles));
         }
     }
 }
