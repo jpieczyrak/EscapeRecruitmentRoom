@@ -39,14 +39,16 @@ namespace EscapeRecruitmentRoom.Presentation.Converters
                     return "pack://application:,,,/Resources/Images/default_key_skeleton.png";
                 case ContentType.Door:
                     return "pack://application:,,,/Resources/Images/doors_item_steel.png";
-                case ContentType.Hero:
-                    return Binding.DoNothing;
                 case ContentType.Torch:
                     return "pack://application:,,,/Resources/Images/default_torch_on_floor.png";
                 case ContentType.Tnt:
                     return "pack://application:,,,/Resources/Images/tnt_side.png";
                 case ContentType.Fire:
-                    break;
+                    return "pack://application:,,,/Resources/Images/fire_basic_flame.png";
+                case ContentType.Skull:
+                    return "pack://application:,,,/Resources/Images/bones_front.png";
+                case ContentType.Hero:
+                    return Binding.DoNothing;
             }
 
             return Binding.DoNothing;
