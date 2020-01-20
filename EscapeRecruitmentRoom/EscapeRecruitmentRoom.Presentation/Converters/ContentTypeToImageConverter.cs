@@ -16,11 +16,18 @@ namespace EscapeRecruitmentRoom.Presentation.Converters
             {
                 case ContentType.Floor:
                     return "pack://application:,,,/Resources/Images/default_acacia_tree.png";
+                case ContentType.ObsidianFloor:
+                    return "pack://application:,,,/Resources/Images/default_obsidian_block.png";
+                case ContentType.ClayFloor:
+                    return "pack://application:,,,/Resources/Images/default_dirt.png";
+                case ContentType.WoodFloor:
+                    return "pack://application:,,,/Resources/Images/doors_trapdoor_side.png";
                 case ContentType.Rock:
                     return "pack://application:,,,/Resources/Images/default_brick.png";
                 case ContentType.Brick:
                     return "pack://application:,,,/Resources/Images/default_clay_brick.png";
                 case ContentType.Wood:
+                    return "pack://application:,,,/Resources/Images/boat_inventory.png";
                     return "pack://application:,,,/Resources/Images/default_wood.png";
                 case ContentType.Lava:
                     return "pack://application:,,,/Resources/Images/default_lava.png";
@@ -38,6 +45,8 @@ namespace EscapeRecruitmentRoom.Presentation.Converters
                     return "pack://application:,,,/Resources/Images/default_torch_on_floor.png";
                 case ContentType.Tnt:
                     return "pack://application:,,,/Resources/Images/tnt_side.png";
+                case ContentType.Fire:
+                    break;
             }
 
             return Binding.DoNothing;

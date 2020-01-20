@@ -169,5 +169,11 @@
     <Resource Include="Resources\Images\hero_left.png" />
     <Resource Include="Resources\Images\hero_right.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\boat_inventory.png" />
+    <Resource Include="Resources\Images\default_clay.png" />
+    <Resource Include="Resources\Images\default_dirt.png" />
+    <Resource Include="Resources\Images\fire_basic_flame.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
