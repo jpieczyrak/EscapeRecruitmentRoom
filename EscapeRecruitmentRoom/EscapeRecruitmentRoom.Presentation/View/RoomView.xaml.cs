@@ -9,10 +9,5 @@ namespace EscapeRecruitmentRoom.Presentation.View
         {
             InitializeComponent();
         }
-
-        private void RoomView_OnLoaded(object sender, RoutedEventArgs e)
-        {
-            this.Focus();
-        }
     }
 }

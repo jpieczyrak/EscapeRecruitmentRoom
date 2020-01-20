@@ -10,8 +10,8 @@
                                      IsDesignTimeCreatable=True}"
     d:DesignHeight="450"
     d:DesignWidth="600"
+    FocusManager.FocusedElement="{Binding ElementName=ConsoleInputTextBox}"
     Focusable="True"
-    Loaded="RoomView_OnLoaded"
     mc:Ignorable="d">
     <UserControl.Resources>
         <converters:ContentTypeToImageConverter x:Key="ContentTypeToImageConverter" />
@@ -108,6 +108,7 @@
             Text="{Binding Manager.GameState.TurnLogText, Mode=OneWay}"
             VerticalScrollBarVisibility="Auto" />
         <TextBox
+            x:Name="ConsoleInputTextBox"
             Grid.Row="2"
             Grid.ColumnSpan="3"
             Margin="5,1"
