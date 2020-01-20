@@ -15,6 +15,7 @@
     mc:Ignorable="d">
     <UserControl.Resources>
         <converters:ContentTypeToImageConverter x:Key="ContentTypeToImageConverter" />
+        <converters:DirectionToHeroConverter x:Key="DirectionToHeroConverter" />
     </UserControl.Resources>
     <UserControl.InputBindings>
         <KeyBinding
@@ -77,6 +78,7 @@
                                             </ItemsPanelTemplate>
                                         </ItemsControl.ItemsPanel>
                                     </ItemsControl>
+                                    <Image Height="40" Source="{Binding HeroDirection, Converter={StaticResource DirectionToHeroConverter}}" />
                                     <TextBlock
                                         Margin="0,0,3,3"
                                         HorizontalAlignment="Right"

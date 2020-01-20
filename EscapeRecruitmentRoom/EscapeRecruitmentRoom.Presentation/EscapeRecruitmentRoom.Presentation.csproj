@@ -72,6 +72,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Converters\ContentTypeToImageConverter.cs" />
+    <Compile Include="Converters\DirectionToHeroConverter.cs" />
     <Compile Include="Logic\CommandParser.cs" />
     <Compile Include="Module\PresentationModule.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
@@ -161,6 +162,12 @@
     <Resource Include="Resources\Images\tnt_gunpowder_inventory.png" />
     <Resource Include="Resources\Images\tnt_side.png" />
     <Resource Include="Resources\Images\wool_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\hero_back.png" />
+    <Resource Include="Resources\Images\hero_front.png" />
+    <Resource Include="Resources\Images\hero_left.png" />
+    <Resource Include="Resources\Images\hero_right.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

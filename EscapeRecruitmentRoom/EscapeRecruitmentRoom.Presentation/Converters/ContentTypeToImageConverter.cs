@@ -33,14 +33,14 @@ namespace EscapeRecruitmentRoom.Presentation.Converters
                 case ContentType.Door:
                     return "pack://application:,,,/Resources/Images/doors_item_steel.png";
                 case ContentType.Hero:
-                    return "pack://application:,,,/Resources/Images/default_gold_lump.png";
+                    return Binding.DoNothing;
                 case ContentType.Torch:
                     return "pack://application:,,,/Resources/Images/default_torch_on_floor.png";
                 case ContentType.Tnt:
                     return "pack://application:,,,/Resources/Images/tnt_side.png";
             }
 
-            return "pack://application:,,,/Resources/Images/default_obsidian.png";
+            return Binding.DoNothing;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
