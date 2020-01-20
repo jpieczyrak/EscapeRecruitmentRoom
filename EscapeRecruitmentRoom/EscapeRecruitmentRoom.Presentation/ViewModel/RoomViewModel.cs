@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 using EscapeRecruitmentRoom.Core.Logic.Game;
 using EscapeRecruitmentRoom.Core.Model;
@@ -39,19 +40,28 @@ namespace EscapeRecruitmentRoom.Presentation.ViewModel
 
             Tiles = Manager.GameState.Tiles;
 
-            Left = new RelayCommand(() => Manager.Go(Manager.HeroTile.Code, Direction.Left));
-
-            Right = new RelayCommand(() => Manager.Go(Manager.HeroTile.Code, Direction.Right));
-
-            Up = new RelayCommand(() => Manager.Go(Manager.HeroTile.Code, Direction.Up));
-
-            Down = new RelayCommand(() => Manager.Go(Manager.HeroTile.Code, Direction.Down));
+            Left = new RelayCommand(() => Go(Direction.Left));
+            Right = new RelayCommand(() => Go(Direction.Right));
+            Up = new RelayCommand(() => Go(Direction.Up));
+            Down = new RelayCommand(() => Go(Direction.Down));
 
             Parse = new RelayCommand(() =>
             {
                 CommandParser.ParseAndRun(CommandText, Manager);
                 CommandText = null;
             });
+        }
+
+        private void Go(Direction direction)
+        {
+            try
+            {
+                Manager.Go(Manager.HeroTile.Code, direction);
+            }
+            catch (ArgumentException e)
+            {
+                Console.WriteLine(e);
+            }
         }
 
         private void RestartImpl()
