@@ -7,7 +7,7 @@ namespace EscapeRecruitmentRoom.Presentation.Logic
 {
     public class CommandParser
     {
-        public static void ParseAndRun(string content, GameManager manager)
+        public static void ParseAndRun(string content, IGameManager manager)
         {
             if (string.IsNullOrWhiteSpace(content)) return;
 

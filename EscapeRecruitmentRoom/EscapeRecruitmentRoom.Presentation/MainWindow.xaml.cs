@@ -6,13 +6,10 @@ namespace EscapeRecruitmentRoom.Presentation
 {
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public MainWindow(MainViewModel mainViewModel, RoomViewModel roomViewModel)
         {
-            // todo: resolve
-            MainViewModel vm = new MainViewModel();
-            DataContext = vm;
-
-            vm.SelectedViewModel = new RoomViewModel();
+            DataContext = mainViewModel;
+            mainViewModel.SelectedViewModel = roomViewModel;
 
             InitializeComponent();
         }

@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 
-using EscapeRecruitmentRoom.Core.Logic.Board;
 using EscapeRecruitmentRoom.Core.Logic.Game;
 using EscapeRecruitmentRoom.Core.Model;
 using EscapeRecruitmentRoom.Presentation.Logic;
@@ -12,7 +11,7 @@ namespace EscapeRecruitmentRoom.Presentation.ViewModel
 {
     public class RoomViewModel : ViewModelBase
     {
-        public GameManager Manager { get; }
+        public IGameManager Manager { get; }
 
         public IReadOnlyCollection<IReadOnlyCollection<Tile>> Tiles { get; set; }
 
@@ -31,10 +30,9 @@ namespace EscapeRecruitmentRoom.Presentation.ViewModel
         public RelayCommand Restart { get; }
         public RelayCommand Parse { get; }
 
-        public RoomViewModel()
+        public RoomViewModel(IGameManager manager)
         {
-            // todo: resolve
-            Manager = new GameManager(new BoardProvider());
+            Manager = manager;
             Manager.StartGame();
 
             Tiles = Manager.GameState.Tiles;
