@@ -34,7 +34,7 @@ namespace EscapeRecruitmentRoom.Presentation.Converters
                 case ContentType.Water:
                     return "pack://application:,,,/Resources/Images/default_water.png";
                 case ContentType.Gas:
-                    return "pack://application:,,,/Resources/Images/default_item_smoke.png";
+                    return "pack://application:,,,/Resources/Images/default_item_smoke_green.png";
                 case ContentType.Key:
                     return "pack://application:,,,/Resources/Images/default_key_skeleton.png";
                 case ContentType.Door:
