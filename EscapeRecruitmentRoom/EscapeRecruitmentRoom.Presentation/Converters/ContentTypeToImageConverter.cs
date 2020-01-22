@@ -27,8 +27,7 @@ namespace EscapeRecruitmentRoom.Presentation.Converters
                 case ContentType.Brick:
                     return "pack://application:,,,/Resources/Images/default_clay_brick.png";
                 case ContentType.Wood:
-                    return "pack://application:,,,/Resources/Images/boat_inventory.png";
-                    return "pack://application:,,,/Resources/Images/default_wood.png";
+                    return "pack://application:,,,/Resources/Images/wood.png";
                 case ContentType.Lava:
                     return "pack://application:,,,/Resources/Images/default_lava.png";
                 case ContentType.Water:
