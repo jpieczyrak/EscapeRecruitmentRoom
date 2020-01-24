@@ -53,7 +53,8 @@
             <Button
                 Margin="5"
                 Command="{Binding Restart}"
-                Content="Restart" />
+                Content="Restart"
+                Focusable="False" />
         </StackPanel>
 
         <ItemsControl
