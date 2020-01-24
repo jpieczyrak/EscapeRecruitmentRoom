@@ -2,13 +2,14 @@
 
 using Autofac;
 
-using EscapeRecruitmentRoom.Core.Logic.Game;
 using EscapeRecruitmentRoom.Presentation.ViewModel;
 
 namespace EscapeRecruitmentRoom.Presentation
 {
     public partial class App : Application
     {
+        private MainWindow _window;
+
         protected override void OnStartup(StartupEventArgs e)
         {
             var builder = new ContainerBuilder();
@@ -18,9 +19,18 @@ namespace EscapeRecruitmentRoom.Presentation
             var container = builder.Build();
             using (var scope = container.BeginLifetimeScope())
             {
-                var window = scope.Resolve<MainWindow>();
-                window.Show();
+                _window = scope.Resolve<MainWindow>();
+                _window.Show();
             }
+        }
+
+        protected override void OnExit(ExitEventArgs e)
+        {
+            if ((_window.DataContext as MainViewModel)?.SelectedViewModel is RoomViewModel vm)
+            {
+                vm.Manager.Exit();
+            }
+            base.OnExit(e);
         }
     }
 }
