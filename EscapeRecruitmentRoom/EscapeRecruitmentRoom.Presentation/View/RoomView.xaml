@@ -1,0 +1,179 @@
+﻿<UserControl
+    x:Class="EscapeRecruitmentRoom.Presentation.View.RoomView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="clr-namespace:EscapeRecruitmentRoom.Presentation.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModel="clr-namespace:EscapeRecruitmentRoom.Presentation.ViewModel"
+    d:DataContext="{d:DesignInstance Type=viewModel:RoomViewModel,
+                                     IsDesignTimeCreatable=True}"
+    d:DesignHeight="450"
+    d:DesignWidth="600"
+    FocusManager.FocusedElement="{Binding ElementName=ConsoleInputTextBox}"
+    Focusable="True"
+    Loaded="OnLoaded"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <converters:ContentTypeToImageConverter x:Key="ContentTypeToImageConverter" />
+        <converters:DirectionToHeroConverter x:Key="DirectionToHeroConverter" />
+    </UserControl.Resources>
+    <UserControl.InputBindings>
+        <KeyBinding
+            Key="Left"
+            Command="{Binding Left}"
+            Modifiers="Alt" />
+        <KeyBinding
+            Key="Right"
+            Command="{Binding Right}"
+            Modifiers="Alt" />
+        <KeyBinding
+            Key="Up"
+            Command="{Binding Up}"
+            Modifiers="Alt" />
+        <KeyBinding
+            Key="Down"
+            Command="{Binding Down}"
+            Modifiers="Alt" />
+        <KeyBinding
+            Key="C"
+            Command="{Binding Copy}"
+            Modifiers="Alt" />
+        <KeyBinding Key="Enter" Command="{Binding Parse}" />
+    </UserControl.InputBindings>
+
+    <Grid Background="Gray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <TextBlock
+            Grid.ColumnSpan="3"
+            HorizontalAlignment="Center"
+            Text="{Binding Message}" />
+        <StackPanel Grid.Row="1" Grid.Column="0">
+            <Button
+                Margin="5"
+                Command="{Binding Restart}"
+                Content="Restart"
+                Focusable="False" />
+            <Button
+                Margin="5"
+                Command="{Binding Logout}"
+                Content="Logout"
+                Focusable="False" />
+        </StackPanel>
+
+        <ItemsControl
+            Grid.Row="1"
+            Grid.Column="1"
+            Margin="5,2"
+            ItemsSource="{Binding Tiles}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <ItemsControl ItemsSource="{Binding}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Margin="1">
+                                    <ItemsControl ItemsSource="{Binding Content}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <Image MaxHeight="40" Source="{Binding ., Converter={StaticResource ContentTypeToImageConverter}}" />
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <Grid />
+                                            </ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+                                    </ItemsControl>
+                                    <Image Height="40" Source="{Binding HeroDirection, Converter={StaticResource DirectionToHeroConverter}}" />
+                                    <TextBlock
+                                        Margin="0,0,3,3"
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Bottom"
+                                        Foreground="White"
+                                        Text="{Binding Code}" />
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
+        <TextBox
+            Grid.Row="2"
+            Grid.ColumnSpan="3"
+            Height="200"
+            Margin="5,1"
+            Background="#FF303030"
+            Foreground="Gainsboro"
+            IsReadOnly="True"
+            Text="{Binding Manager.GameState.TurnLogText, Mode=OneWay}"
+            VerticalScrollBarVisibility="Auto" />
+        <TextBox
+            x:Name="ConsoleInputTextBox"
+            Grid.Row="3"
+            Grid.ColumnSpan="3"
+            Margin="5,1"
+            AcceptsTab="True"
+            Background="#FF303030"
+            Foreground="Gainsboro"
+            Text="{Binding CommandText, UpdateSourceTrigger=PropertyChanged}" />
+
+        <Grid Grid.Row="1" Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <UniformGrid Columns="2">
+                <TextBlock
+                    Margin="2"
+                    Foreground="Gainsboro"
+                    Text="Turn: " />
+                <TextBlock
+                    Margin="2"
+                    Foreground="Gainsboro"
+                    Text="{Binding Manager.GameState.TurnNumber}" />
+                <TextBlock
+                    Margin="2"
+                    Foreground="Gainsboro"
+                    Text="Game score: " />
+                <TextBlock
+                    Margin="2"
+                    Foreground="Gainsboro"
+                    Text="{Binding Manager.GameState.GameScore.Score}" />
+                <TextBlock
+                    Margin="2"
+                    Foreground="Gainsboro"
+                    Text="Account score: " />
+                <TextBlock
+                    Margin="2"
+                    Foreground="Gainsboro"
+                    Text="{Binding Manager.GameState.HistoricalAccountScore.TotalScore}" />
+            </UniformGrid>
+            <ScrollViewer
+                Grid.Row="1"
+                MaxHeight="320"
+                Margin="0,10,0,5">
+                <ItemsControl
+                    Foreground="Gainsboro"
+                    ItemsSource="{Binding Manager.GameState.HistoricalAccountScore.Achievements}"
+                    ScrollViewer.VerticalScrollBarVisibility="Auto" />
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</UserControl>
