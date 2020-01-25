@@ -140,17 +140,35 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <UniformGrid Columns="2">
-                <TextBlock Foreground="Gainsboro" Text="Turn: " />
-                <TextBlock Foreground="Gainsboro" Text="{Binding Manager.GameState.TurnNumber}" />
-                <TextBlock Foreground="Gainsboro" Text="Game score: " />
-                <TextBlock Foreground="Gainsboro" Text="{Binding Manager.GameState.GameScore.Score}" />
-                <TextBlock Foreground="Gainsboro" Text="Account score: " />
-                <TextBlock Foreground="Gainsboro" Text="{Binding Manager.GameState.HistoricalAccountScore.TotalScore}" />
+                <TextBlock
+                    Margin="2"
+                    Foreground="Gainsboro"
+                    Text="Turn: " />
+                <TextBlock
+                    Margin="2"
+                    Foreground="Gainsboro"
+                    Text="{Binding Manager.GameState.TurnNumber}" />
+                <TextBlock
+                    Margin="2"
+                    Foreground="Gainsboro"
+                    Text="Game score: " />
+                <TextBlock
+                    Margin="2"
+                    Foreground="Gainsboro"
+                    Text="{Binding Manager.GameState.GameScore.Score}" />
+                <TextBlock
+                    Margin="2"
+                    Foreground="Gainsboro"
+                    Text="Account score: " />
+                <TextBlock
+                    Margin="2"
+                    Foreground="Gainsboro"
+                    Text="{Binding Manager.GameState.HistoricalAccountScore.TotalScore}" />
             </UniformGrid>
             <ScrollViewer
                 Grid.Row="1"
                 MaxHeight="320"
-                Margin="0,5">
+                Margin="0,10,0,5">
                 <ItemsControl
                     Foreground="Gainsboro"
                     ItemsSource="{Binding Manager.GameState.HistoricalAccountScore.Achievements}"
