@@ -8,7 +8,7 @@ using System.Windows;
 [assembly: AssemblyTitle("EscapeRecruitmentRoom.Presentation")]
 [assembly: AssemblyDescription("Recruitment application created by Jędrzej Pieczyrak, January 2020")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("VTS Software Ltd (https://www.vtssoftwre.com)")]
+[assembly: AssemblyCompany("VTS Software Ltd (https://www.vtssoftware.com)")]
 [assembly: AssemblyProduct("EscapeRecruitmentRoom.Presentation")]
 [assembly: AssemblyCopyright("Copyright © VTS Software Ltd")]
 [assembly: AssemblyTrademark("")]

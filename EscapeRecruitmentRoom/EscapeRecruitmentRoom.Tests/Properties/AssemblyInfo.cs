@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("EscapeRecruitmentRoom.Tests")]
 [assembly: AssemblyDescription("Tests for recruitment application created by Jędrzej Pieczyrak, January 2020")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("VTS Software Ltd (https://www.vtssoftwre.com)")]
+[assembly: AssemblyCompany("VTS Software Ltd (https://www.vtssoftware.com)")]
 [assembly: AssemblyProduct("EscapeRecruitmentRoom.Tests")]
 [assembly: AssemblyCopyright("Copyright © VTS Software Ltd")]
 [assembly: AssemblyTrademark("")]
