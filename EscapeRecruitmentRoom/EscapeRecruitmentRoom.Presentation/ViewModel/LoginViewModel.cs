@@ -12,6 +12,7 @@ namespace EscapeRecruitmentRoom.Presentation.ViewModel
         private readonly IViewNavigator _navigator;
         private string _loginText;
         private string _passwordText;
+        private string _response;
 
         public LoginViewModel(ILoginService loginService, IViewNavigator navigator)
         {
@@ -34,6 +35,12 @@ namespace EscapeRecruitmentRoom.Presentation.ViewModel
 
         public string Title => "Please enter credentials";
 
+        public string Response
+        {
+            get => _response;
+            set => Set(ref _response, value);
+        }
+
         public RelayCommand Login { get; }
 
         private void LoginImpl()
@@ -41,6 +48,10 @@ namespace EscapeRecruitmentRoom.Presentation.ViewModel
             if (_loginService.Authorize(LoginText, PasswordText))
             {
                 _navigator.NavigateTo(View.Room);
+            }
+            else
+            {
+                Response = "Invalid input";
             }
         }
     }
