@@ -10,7 +10,6 @@
                                      IsDesignTimeCreatable=True}"
     d:DesignHeight="450"
     d:DesignWidth="600"
-    FocusManager.FocusedElement="{Binding ElementName=ConsoleInputTextBox}"
     Focusable="True"
     mc:Ignorable="d">
 
@@ -38,7 +37,8 @@
             Grid.Row="2"
             Margin="5"
             Command="{Binding Login}"
-            Content="Login" />
+            Content="Login"
+            Focusable="False" />
         <TextBlock
             Grid.Row="3"
             HorizontalAlignment="Center"
