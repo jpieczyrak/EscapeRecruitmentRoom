@@ -7,4 +7,7 @@
     <DataTemplate DataType="{x:Type viewModel:RoomViewModel}">
         <view:RoomView />
     </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModel:LoginViewModel}">
+        <view:LoginView />
+    </DataTemplate>
 </ResourceDictionary>

@@ -73,10 +73,17 @@
     </ApplicationDefinition>
     <Compile Include="Converters\ContentTypeToImageConverter.cs" />
     <Compile Include="Converters\DirectionToHeroConverter.cs" />
+    <Compile Include="View\IViewNavigator.cs" />
     <Compile Include="Logic\CommandParser.cs" />
     <Compile Include="Module\PresentationModule.cs" />
+    <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\RoomViewModel.cs" />
+    <Compile Include="ViewModel\View.cs" />
+    <Compile Include="View\ViewNavigator.cs" />
+    <Compile Include="View\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\RoomView.xaml.cs">
       <DependentUpon>RoomView.xaml</DependentUpon>
     </Compile>
@@ -95,6 +102,10 @@
     <Page Include="ViewModels.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LoginView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\RoomView.xaml">
       <SubType>Designer</SubType>

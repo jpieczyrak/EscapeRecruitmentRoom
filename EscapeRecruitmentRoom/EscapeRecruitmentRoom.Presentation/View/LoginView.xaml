@@ -1,0 +1,36 @@
+﻿<UserControl
+    x:Class="EscapeRecruitmentRoom.Presentation.View.LoginView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="clr-namespace:EscapeRecruitmentRoom.Presentation.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModel="clr-namespace:EscapeRecruitmentRoom.Presentation.ViewModel"
+    d:DataContext="{d:DesignInstance Type=viewModel:LoginViewModel,
+                                     IsDesignTimeCreatable=True}"
+    d:DesignHeight="450"
+    d:DesignWidth="600"
+    FocusManager.FocusedElement="{Binding ElementName=ConsoleInputTextBox}"
+    Focusable="True"
+    mc:Ignorable="d">
+
+    <Grid Background="Gray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <UniformGrid Margin="20" Columns="2">
+            <TextBlock Text="Login" />
+            <TextBox Text="{Binding LoginText, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Text="Password" />
+            <TextBox Text="{Binding PasswordText, UpdateSourceTrigger=PropertyChanged}" />
+        </UniformGrid>
+        <Button
+            Grid.Row="2"
+            Margin="5"
+            Command="{Binding Login}"
+            Content="Login" />
+    </Grid>
+</UserControl>
