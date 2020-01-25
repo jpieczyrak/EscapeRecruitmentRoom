@@ -23,6 +23,8 @@ namespace EscapeRecruitmentRoom.Presentation.ViewModel
             set => Set(ref _commandText, value);
         }
 
+        public string Title => Manager.Title;
+
         public RelayCommand Left { get; }
         public RelayCommand Right { get; }
         public RelayCommand Up { get; }

@@ -1,6 +1,4 @@
-﻿using System;
-
-using EscapeRecruitmentRoom.Core.Logic.Account;
+﻿using EscapeRecruitmentRoom.Core.Logic.Account;
 using EscapeRecruitmentRoom.Presentation.View;
 
 using GalaSoft.MvvmLight;
@@ -34,12 +32,13 @@ namespace EscapeRecruitmentRoom.Presentation.ViewModel
             set => this.Set(ref _passwordText, value);
         }
 
+        public string Title => "Please enter credentials";
+
         public RelayCommand Login { get; }
 
         private void LoginImpl()
         {
-            bool logged = _loginService.Authorize(LoginText, PasswordText);
-            if (logged)
+            if (_loginService.Authorize(LoginText, PasswordText))
             {
                 _navigator.NavigateTo(View.Room);
             }

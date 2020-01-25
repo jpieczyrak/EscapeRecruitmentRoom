@@ -5,7 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModel="clr-namespace:EscapeRecruitmentRoom.Presentation.ViewModel"
-    Title="Escape recruitment room"
+    Title="{Binding SelectedViewModel.Title}"
     Width="1000"
     Height="800"
     d:DataContext="{d:DesignInstance Type=viewModel:MainViewModel,
