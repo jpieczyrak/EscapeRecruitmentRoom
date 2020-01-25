@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows;
 
 using EscapeRecruitmentRoom.Core.Logic;
 using EscapeRecruitmentRoom.Core.Logic.Account;
@@ -45,6 +46,7 @@ namespace EscapeRecruitmentRoom.Presentation.ViewModel
         public RelayCommand Restart { get; }
         public RelayCommand Logout { get; }
         public RelayCommand Parse { get; }
+        public RelayCommand Copy { get; }
 
         public RoomViewModel(IGameManager manager, ILoginService loginService, IViewNavigator navigator)
         {
@@ -72,6 +74,8 @@ namespace EscapeRecruitmentRoom.Presentation.ViewModel
             });
 
             Logout = new RelayCommand(() => _navigator.NavigateTo(View.Login));
+
+            Copy = new RelayCommand(() => Clipboard.SetText(string.Join(Environment.NewLine, Manager.GameState.Commands)));
         }
 
         private void Go(Direction direction)

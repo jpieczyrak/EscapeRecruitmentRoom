@@ -35,6 +35,10 @@
             Key="Down"
             Command="{Binding Down}"
             Modifiers="Alt" />
+        <KeyBinding
+            Key="C"
+            Command="{Binding Copy}"
+            Modifiers="Alt" />
         <KeyBinding Key="Enter" Command="{Binding Parse}" />
     </UserControl.InputBindings>
 
