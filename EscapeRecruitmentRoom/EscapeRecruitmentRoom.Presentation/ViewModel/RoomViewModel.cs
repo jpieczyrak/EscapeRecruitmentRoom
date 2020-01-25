@@ -58,11 +58,8 @@ namespace EscapeRecruitmentRoom.Presentation.ViewModel
             Tiles = Manager.GameState.Tiles;
 
             Left = new RelayCommand(() => Go(Direction.Left));
-
             Right = new RelayCommand(() => Go(Direction.Right));
-
             Up = new RelayCommand(() => Go(Direction.Up));
-
             Down = new RelayCommand(() => Go(Direction.Down));
 
             Parse = new RelayCommand(() =>

@@ -144,38 +144,18 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Images\bones_front.png" />
-    <Resource Include="Resources\Images\bones_side.png" />
-    <Resource Include="Resources\Images\carts_rail_crossing.png" />
     <Resource Include="Resources\Images\default_acacia_tree.png" />
-    <Resource Include="Resources\Images\default_acacia_wood.png" />
     <Resource Include="Resources\Images\default_brick.png" />
-    <Resource Include="Resources\Images\default_chest_front.png" />
-    <Resource Include="Resources\Images\default_chest_lock.png" />
     <Resource Include="Resources\Images\default_clay_brick.png" />
-    <Resource Include="Resources\Images\default_desert_sandstone_brick.png" />
-    <Resource Include="Resources\Images\default_diamond.png" />
-    <Resource Include="Resources\Images\default_furnace_front.png" />
-    <Resource Include="Resources\Images\default_gold_ingot.png" />
-    <Resource Include="Resources\Images\default_gold_lump.png" />
-    <Resource Include="Resources\Images\default_item_smoke.png" />
     <Resource Include="Resources\Images\default_key_skeleton.png" />
     <Resource Include="Resources\Images\default_lava.png" />
-    <Resource Include="Resources\Images\default_obsidian.png" />
     <Resource Include="Resources\Images\default_obsidian_block.png" />
-    <Resource Include="Resources\Images\default_obsidian_brick.png" />
-    <Resource Include="Resources\Images\default_silver_sandstone_block.png" />
-    <Resource Include="Resources\Images\default_silver_sandstone_brick.png" />
-    <Resource Include="Resources\Images\default_tin_block.png" />
     <Resource Include="Resources\Images\default_torch_on_floor.png" />
-    <Resource Include="Resources\Images\default_tree.png" />
     <Resource Include="Resources\Images\default_water.png" />
     <Resource Include="Resources\Images\default_wood.png" />
     <Resource Include="Resources\Images\doors_item_steel.png" />
     <Resource Include="Resources\Images\doors_trapdoor_side.png" />
-    <Resource Include="Resources\Images\doors_trapdoor_steel.png" />
-    <Resource Include="Resources\Images\tnt_gunpowder_inventory.png" />
     <Resource Include="Resources\Images\tnt_side.png" />
-    <Resource Include="Resources\Images\wool_black.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Images\hero_back.png" />
@@ -184,14 +164,12 @@
     <Resource Include="Resources\Images\hero_right.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Images\boat_inventory.png" />
     <Resource Include="Resources\Images\default_clay.png" />
     <Resource Include="Resources\Images\default_dirt.png" />
     <Resource Include="Resources\Images\fire_basic_flame.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Images\default_item_smoke_green.png" />
-    <Resource Include="Resources\Images\default_item_smoke_orange.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Images\wood.png" />
