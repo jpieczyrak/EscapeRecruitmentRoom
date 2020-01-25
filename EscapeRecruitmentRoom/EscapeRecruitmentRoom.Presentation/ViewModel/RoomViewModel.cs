@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 
+using EscapeRecruitmentRoom.Core.Logic;
 using EscapeRecruitmentRoom.Core.Logic.Account;
 using EscapeRecruitmentRoom.Core.Logic.Game;
 using EscapeRecruitmentRoom.Core.Model;
-using EscapeRecruitmentRoom.Presentation.Logic;
 using EscapeRecruitmentRoom.Presentation.View;
 
 using GalaSoft.MvvmLight;
@@ -56,8 +56,11 @@ namespace EscapeRecruitmentRoom.Presentation.ViewModel
             Tiles = Manager.GameState.Tiles;
 
             Left = new RelayCommand(() => Go(Direction.Left));
+
             Right = new RelayCommand(() => Go(Direction.Right));
+
             Up = new RelayCommand(() => Go(Direction.Up));
+
             Down = new RelayCommand(() => Go(Direction.Down));
 
             Parse = new RelayCommand(() =>
@@ -66,6 +69,7 @@ namespace EscapeRecruitmentRoom.Presentation.ViewModel
                 CommandText = null;
             });
 
+            Restart = new RelayCommand(RestartImpl);
             Logout = new RelayCommand(() => _navigator.NavigateTo(View.Login));
         }
 

@@ -75,7 +75,6 @@
     <Compile Include="Converters\DirectionToHeroConverter.cs" />
     <Compile Include="View\INavigatedTo.cs" />
     <Compile Include="View\IViewNavigator.cs" />
-    <Compile Include="Logic\CommandParser.cs" />
     <Compile Include="Module\PresentationModule.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
