@@ -2,6 +2,10 @@ using GalaSoft.MvvmLight;
 using System;
 
 using EscapeRecruitmentRoom.Presentation.View;
+using System.Reflection;
+using System.Diagnostics;
+
+using EscapeRecruitmentRoom.Core.Logic.Game;
 
 namespace EscapeRecruitmentRoom.Presentation.ViewModel
 {
@@ -16,9 +20,17 @@ namespace EscapeRecruitmentRoom.Presentation.ViewModel
             set => Set(ref _selectedViewModel, value);
         }
 
+        public string Footer { get; }
+
         public MainViewModel(Func<Type, ViewModelBase> factory)
         {
             _factory = factory;
+            Assembly uiAssembly = Assembly.GetExecutingAssembly();
+            Assembly logicAssembly = typeof(IGameManager).Assembly;
+            var versionInfo = FileVersionInfo.GetVersionInfo(logicAssembly.Location);
+            Footer = $"UI {uiAssembly.GetName().Version.ToString(3)}, Logic {logicAssembly.GetName().Version.ToString(3)}{Environment.NewLine}" +
+                $"{versionInfo.LegalCopyright}{Environment.NewLine}" +
+                $"{versionInfo.Comments}";
         }
 
         public void NavigateTo(View view)
