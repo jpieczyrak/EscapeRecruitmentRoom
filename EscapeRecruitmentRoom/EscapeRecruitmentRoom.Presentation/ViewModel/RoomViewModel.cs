@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
+using EscapeRecruitmentRoom.Core.Logic.Account;
 using EscapeRecruitmentRoom.Core.Logic.Game;
 using EscapeRecruitmentRoom.Core.Model;
 using EscapeRecruitmentRoom.Presentation.Logic;
@@ -17,6 +18,7 @@ namespace EscapeRecruitmentRoom.Presentation.ViewModel
         public IReadOnlyCollection<IReadOnlyCollection<Tile>> Tiles { get; set; }
 
         private string _commandText;
+        private string _message = "Welcome ";
 
         public string CommandText
         {
@@ -26,6 +28,12 @@ namespace EscapeRecruitmentRoom.Presentation.ViewModel
 
         public string Title => Manager.Title;
 
+        public string Message
+        {
+            get => _message;
+            set => Set(ref _message, value);
+        }
+
         public RelayCommand Left { get; }
         public RelayCommand Right { get; }
         public RelayCommand Up { get; }
@@ -33,7 +41,7 @@ namespace EscapeRecruitmentRoom.Presentation.ViewModel
         public RelayCommand Restart { get; }
         public RelayCommand Parse { get; }
 
-        public RoomViewModel(IGameManager manager)
+        public RoomViewModel(IGameManager manager, ILoginService service)
         {
             Manager = manager;
             Manager.StartGame();
@@ -50,6 +58,8 @@ namespace EscapeRecruitmentRoom.Presentation.ViewModel
                 CommandParser.ParseAndRun(CommandText, Manager);
                 CommandText = null;
             });
+
+            Message += $"{service.UserName}!";
         }
 
         private void Go(Direction direction)

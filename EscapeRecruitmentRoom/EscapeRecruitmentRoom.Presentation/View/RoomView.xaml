@@ -39,6 +39,7 @@
 
     <Grid Background="Gray">
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
@@ -49,7 +50,8 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Row="0" Grid.Column="0">
+        <TextBlock Grid.ColumnSpan="3" Text="{Binding Message}" HorizontalAlignment="Center"/>
+        <StackPanel Grid.Row="1" Grid.Column="0">
             <Button
                 Margin="5"
                 Command="{Binding Restart}"
@@ -60,7 +62,7 @@
         <ItemsControl
             Grid.Column="1"
             Margin="5,2"
-            ItemsSource="{Binding Tiles}">
+            ItemsSource="{Binding Tiles}" Grid.Row="1">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <ItemsControl ItemsSource="{Binding}">
@@ -99,7 +101,7 @@
             </ItemsControl.ItemsPanel>
         </ItemsControl>
         <TextBox
-            Grid.Row="1"
+            Grid.Row="2"
             Grid.ColumnSpan="3"
             Height="200"
             Margin="5,1"
@@ -112,7 +114,7 @@
             VerticalScrollBarVisibility="Auto" />
         <TextBox
             x:Name="ConsoleInputTextBox"
-            Grid.Row="2"
+            Grid.Row="3"
             Grid.ColumnSpan="3"
             Margin="5,1"
             Background="#FF303030"
@@ -122,6 +124,6 @@
         <TextBlock
             Grid.Column="2"
             Foreground="Gainsboro"
-            Text="{Binding Manager.GameState.TurnNumber}" />
+            Text="{Binding Manager.GameState.TurnNumber}" Grid.Row="1" />
     </Grid>
 </UserControl>

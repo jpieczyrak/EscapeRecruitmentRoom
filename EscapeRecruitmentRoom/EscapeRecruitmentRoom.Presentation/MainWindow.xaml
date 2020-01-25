@@ -7,7 +7,7 @@
     xmlns:viewModel="clr-namespace:EscapeRecruitmentRoom.Presentation.ViewModel"
     Title="{Binding SelectedViewModel.Title}"
     Width="1000"
-    Height="650"
+    Height="680"
     d:DataContext="{d:DesignInstance Type=viewModel:MainViewModel,
                                      IsDesignTimeCreatable=True}"
     mc:Ignorable="d">
