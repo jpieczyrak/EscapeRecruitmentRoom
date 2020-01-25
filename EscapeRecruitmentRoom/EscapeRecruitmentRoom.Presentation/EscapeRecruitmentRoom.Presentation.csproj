@@ -73,6 +73,7 @@
     </ApplicationDefinition>
     <Compile Include="Converters\ContentTypeToImageConverter.cs" />
     <Compile Include="Converters\DirectionToHeroConverter.cs" />
+    <Compile Include="View\INavigatedTo.cs" />
     <Compile Include="View\IViewNavigator.cs" />
     <Compile Include="Logic\CommandParser.cs" />
     <Compile Include="Module\PresentationModule.cs" />

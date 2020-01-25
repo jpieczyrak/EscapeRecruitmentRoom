@@ -12,6 +12,7 @@
     d:DesignWidth="600"
     FocusManager.FocusedElement="{Binding ElementName=ConsoleInputTextBox}"
     Focusable="True"
+    Loaded="OnLoaded"
     mc:Ignorable="d">
     <UserControl.Resources>
         <converters:ContentTypeToImageConverter x:Key="ContentTypeToImageConverter" />
@@ -39,7 +40,7 @@
 
     <Grid Background="Gray">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
@@ -50,19 +51,28 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <TextBlock Grid.ColumnSpan="3" Text="{Binding Message}" HorizontalAlignment="Center"/>
+        <TextBlock
+            Grid.ColumnSpan="3"
+            HorizontalAlignment="Center"
+            Text="{Binding Message}" />
         <StackPanel Grid.Row="1" Grid.Column="0">
             <Button
                 Margin="5"
                 Command="{Binding Restart}"
                 Content="Restart"
                 Focusable="False" />
+            <Button
+                Margin="5"
+                Command="{Binding Logout}"
+                Content="Logout"
+                Focusable="False" />
         </StackPanel>
 
         <ItemsControl
+            Grid.Row="1"
             Grid.Column="1"
             Margin="5,2"
-            ItemsSource="{Binding Tiles}" Grid.Row="1">
+            ItemsSource="{Binding Tiles}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <ItemsControl ItemsSource="{Binding}">
@@ -122,8 +132,9 @@
             Text="{Binding CommandText, UpdateSourceTrigger=PropertyChanged}" />
 
         <TextBlock
+            Grid.Row="1"
             Grid.Column="2"
             Foreground="Gainsboro"
-            Text="{Binding Manager.GameState.TurnNumber}" Grid.Row="1" />
+            Text="{Binding Manager.GameState.TurnNumber}" />
     </Grid>
 </UserControl>

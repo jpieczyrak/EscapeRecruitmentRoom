@@ -9,5 +9,10 @@ namespace EscapeRecruitmentRoom.Presentation.View
         {
             InitializeComponent();
         }
+
+        private void OnLoaded(object sender, RoutedEventArgs e)
+        {
+            ConsoleInputTextBox.Focus();
+        }
     }
 }

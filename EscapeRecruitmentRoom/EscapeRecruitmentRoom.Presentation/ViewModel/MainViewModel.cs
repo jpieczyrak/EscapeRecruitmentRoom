@@ -1,6 +1,8 @@
 using GalaSoft.MvvmLight;
 using System;
 
+using EscapeRecruitmentRoom.Presentation.View;
+
 namespace EscapeRecruitmentRoom.Presentation.ViewModel
 {
     public class MainViewModel : ViewModelBase
@@ -31,6 +33,11 @@ namespace EscapeRecruitmentRoom.Presentation.ViewModel
                     SelectedViewModel = _factory(typeof(RoomViewModel));
 
                     break;
+            }
+
+            if (SelectedViewModel is INavigatedTo updateable)
+            {
+                updateable.Update();
             }
         }
     }

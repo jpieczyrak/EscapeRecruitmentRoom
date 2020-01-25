@@ -5,14 +5,18 @@ using EscapeRecruitmentRoom.Core.Logic.Account;
 using EscapeRecruitmentRoom.Core.Logic.Game;
 using EscapeRecruitmentRoom.Core.Model;
 using EscapeRecruitmentRoom.Presentation.Logic;
+using EscapeRecruitmentRoom.Presentation.View;
 
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
+using GalaSoft.MvvmLight.Views;
 
 namespace EscapeRecruitmentRoom.Presentation.ViewModel
 {
-    public class RoomViewModel : ViewModelBase
+    public class RoomViewModel : ViewModelBase, INavigatedTo
     {
+        private readonly ILoginService _loginService;
+        private readonly IViewNavigator _navigator;
         public IGameManager Manager { get; }
 
         public IReadOnlyCollection<IReadOnlyCollection<Tile>> Tiles { get; set; }
@@ -39,12 +43,15 @@ namespace EscapeRecruitmentRoom.Presentation.ViewModel
         public RelayCommand Up { get; }
         public RelayCommand Down { get; }
         public RelayCommand Restart { get; }
+        public RelayCommand Logout { get; }
         public RelayCommand Parse { get; }
 
-        public RoomViewModel(IGameManager manager, ILoginService service)
+        public RoomViewModel(IGameManager manager, ILoginService loginService, IViewNavigator navigator)
         {
+            _loginService = loginService;
+            _navigator = navigator;
             Manager = manager;
-            Manager.StartGame();
+            manager.StartGame();
 
             Tiles = Manager.GameState.Tiles;
 
@@ -59,7 +66,7 @@ namespace EscapeRecruitmentRoom.Presentation.ViewModel
                 CommandText = null;
             });
 
-            Message += $"{service.UserName}!";
+            Logout = new RelayCommand(() => _navigator.NavigateTo(View.Login));
         }
 
         private void Go(Direction direction)
@@ -79,6 +86,11 @@ namespace EscapeRecruitmentRoom.Presentation.ViewModel
             Manager.Restart();
             Tiles = Manager.GameState.Tiles;
             this.RaisePropertyChanged(nameof(Tiles));
+        }
+
+        public void Update()
+        {
+            Message += $"{_loginService.UserName}!";
         }
     }
 }

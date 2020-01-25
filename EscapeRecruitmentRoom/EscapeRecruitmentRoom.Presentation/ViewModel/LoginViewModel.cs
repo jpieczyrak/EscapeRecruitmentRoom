@@ -47,6 +47,7 @@ namespace EscapeRecruitmentRoom.Presentation.ViewModel
         {
             if (_loginService.Authorize(LoginText, PasswordText))
             {
+                PasswordText = Response = null;
                 _navigator.NavigateTo(View.Room);
             }
             else
