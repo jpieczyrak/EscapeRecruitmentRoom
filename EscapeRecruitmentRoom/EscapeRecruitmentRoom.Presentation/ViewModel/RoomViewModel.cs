@@ -77,6 +77,7 @@ namespace EscapeRecruitmentRoom.Presentation.ViewModel
                     CommandText = null;
                     Tiles = Manager.GameState.Tiles;
                     this.RaisePropertyChanged(nameof(Tiles));
+                    this.RaisePropertyChanged(nameof(Title));
                 }
             });
 
@@ -90,6 +91,7 @@ namespace EscapeRecruitmentRoom.Presentation.ViewModel
             try
             {
                 Manager.Go(Manager.HeroTile.Code, direction);
+                this.RaisePropertyChanged(nameof(Title));
             }
             catch (ArgumentException e)
             {
