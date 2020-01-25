@@ -67,6 +67,8 @@ namespace EscapeRecruitmentRoom.Presentation.ViewModel
             {
                 CommandParser.ParseAndRun(CommandText, Manager);
                 CommandText = null;
+                Tiles = Manager.GameState.Tiles;
+                this.RaisePropertyChanged(nameof(Tiles));
             });
 
             Logout = new RelayCommand(() => _navigator.NavigateTo(View.Login));
