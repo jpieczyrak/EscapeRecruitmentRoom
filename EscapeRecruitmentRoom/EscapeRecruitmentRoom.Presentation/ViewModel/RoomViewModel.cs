@@ -11,7 +11,6 @@ using EscapeRecruitmentRoom.Presentation.View;
 
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
-using GalaSoft.MvvmLight.Views;
 
 namespace EscapeRecruitmentRoom.Presentation.ViewModel
 {
