@@ -1,16 +1,15 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("EscapeRecruitmentRoom.Tests")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Tests for recruitment application created by Jędrzej Pieczyrak, January 2020")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("VTS Software Ltd (https://www.vtssoftwre.com)")]
 [assembly: AssemblyProduct("EscapeRecruitmentRoom.Tests")]
-[assembly: AssemblyCopyright("Copyright ©  2020")]
+[assembly: AssemblyCopyright("Copyright © VTS Software Ltd")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
