@@ -23,6 +23,7 @@ namespace EscapeRecruitmentRoom.Presentation.Module
                 .Where(t => t.IsSubclassOf(typeof(ViewModelBase)))
                 .Named<ViewModelBase>(x => x.Name)
                 .As(t => t)
+                .SingleInstance()
                 .ExternallyOwned();
 
             builder.Register<Func<Type, ViewModelBase>>(c =>
