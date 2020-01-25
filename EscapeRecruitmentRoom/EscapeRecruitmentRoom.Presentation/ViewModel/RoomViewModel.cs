@@ -69,7 +69,6 @@ namespace EscapeRecruitmentRoom.Presentation.ViewModel
                 CommandText = null;
             });
 
-            Restart = new RelayCommand(RestartImpl);
             Logout = new RelayCommand(() => _navigator.NavigateTo(View.Login));
         }
 
