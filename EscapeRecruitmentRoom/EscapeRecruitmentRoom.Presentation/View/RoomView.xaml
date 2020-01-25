@@ -119,8 +119,6 @@
             Grid.ColumnSpan="3"
             Height="200"
             Margin="5,1"
-            AcceptsReturn="True"
-            AcceptsTab="True"
             Background="#FF303030"
             Foreground="Gainsboro"
             IsReadOnly="True"
@@ -131,6 +129,7 @@
             Grid.Row="3"
             Grid.ColumnSpan="3"
             Margin="5,1"
+            AcceptsTab="True"
             Background="#FF303030"
             Foreground="Gainsboro"
             Text="{Binding CommandText, UpdateSourceTrigger=PropertyChanged}" />

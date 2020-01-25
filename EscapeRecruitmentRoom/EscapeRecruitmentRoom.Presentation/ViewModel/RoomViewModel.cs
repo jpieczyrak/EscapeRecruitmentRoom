@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 
 using EscapeRecruitmentRoom.Core.Logic;
@@ -67,15 +68,22 @@ namespace EscapeRecruitmentRoom.Presentation.ViewModel
 
             Parse = new RelayCommand(() =>
             {
-                CommandParser.ParseAndRun(CommandText, Manager);
-                CommandText = null;
-                Tiles = Manager.GameState.Tiles;
-                this.RaisePropertyChanged(nameof(Tiles));
+                var commands = CommandText?.Split(new []{ "#" }, StringSplitOptions.RemoveEmptyEntries);
+                if (commands?.Any() == true)
+                {
+                    foreach (string command in commands)
+                    {
+                        CommandParser.ParseAndRun(command, Manager);
+                    }
+                    CommandText = null;
+                    Tiles = Manager.GameState.Tiles;
+                    this.RaisePropertyChanged(nameof(Tiles));
+                }
             });
 
             Logout = new RelayCommand(() => _navigator.NavigateTo(View.Login));
 
-            Copy = new RelayCommand(() => Clipboard.SetText(string.Join(Environment.NewLine, Manager.GameState.Commands)));
+            Copy = new RelayCommand(() => Clipboard.SetText(string.Join("#", Manager.GameState.Commands)));
         }
 
         private void Go(Direction direction)
