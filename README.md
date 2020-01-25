@@ -1,2 +1,2 @@
-Copyrights: VTS Software Ltd (https://www.vtssoftwre.com)
+Copyrights: VTS Software Ltd (https://www.vtssoftware.com)
 Author: Jedrzej Pieczyrak, January 2020
